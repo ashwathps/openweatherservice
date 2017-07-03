@@ -1,0 +1,20 @@
+{
+  "apiUrl": "api.openweathermap.org/data/2.5/weather",
+  "account": {
+    "default": {
+      "keys": [
+        "5bb24ba5579ed211e2a16d88185d1721",
+        "a89e4b9aa861bb66a49693206e062e4f",
+        "3afc3b1b14cf76028152b99c022c4894",
+        "081d22e5238cd7089c663e5383b2c4a5",
+        "ab19fb0dd3dbc99832265ed7f18484e4",
+        "1937933df7d218a83eed78334a084c55"
+      ],
+      "name": "name",
+      "email": "",
+      "type": "free",
+      "max": 60,
+      "duration": "1h"
+    }
+  }
+}

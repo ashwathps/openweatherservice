@@ -1,0 +1,8 @@
+{
+  "ratelimit": {
+    "by": "keys",
+    "max": 5,
+    "duration": "120s"
+  },
+  "cachedResultsStayFor": "60s"
+}

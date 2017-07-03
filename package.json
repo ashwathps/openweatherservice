@@ -1,0 +1,46 @@
+{
+  "name": "jbweather",
+  "version": "1.0.0",
+  "description": "JB's weather service API",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "weather"
+  ],
+  "author": "Ashwath",
+  "license": "MIT",
+  "dependencies": {
+    "co": "^4.6.0",
+    "co-request": "^1.0.0",
+    "dotenv": "^4.0.0",
+    "http-errors": "^1.6.1",
+    "jsonwebtoken": "^7.4.1",
+    "koa": "^1.4.0",
+    "koa-bodyparser": "^2.5.0",
+    "koa-compose": "^2.5.1",
+    "koa-router": "^5.4.0",
+    "lodash": "^4.17.4",
+    "lru-cache": "^4.1.1",
+    "moment": "^2.18.1",
+    "parse-duration": "^0.1.1"
+  },
+  "devDependencies": {
+    "co-mocha": "^1.2.0",
+    "eslint": "^3.19.0",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^19.0.0",
+    "grunt-mocha-istanbul": "^5.0.2",
+    "grunt-nodemon": "^0.4.2",
+    "istanbul": "^0.4.5",
+    "load-grunt-tasks": "^3.5.2",
+    "mocha": "^3.4.2",
+    "should": "^11.2.1",
+    "sinon": "^2.3.2",
+    "supertest": "^3.0.0"
+  }
+}
