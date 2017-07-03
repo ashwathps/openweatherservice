@@ -17,15 +17,23 @@ class WeatherController {
       return { cached: true, result: response };
     }
   }
+
+  modifyResponse(response) {
+    if(response.weather) {
+      return response.weather[0].description || 'No data';
+    }
+    return '';
+  }
+
   * getWeather() {
     const cached = this.fetchCachedResponses(this.request.originalUrl)
     if(!cached) {
       const client = new openWeatherClient();
       const response = yield client.getWeather(this.params.country, this.params.city, this.query.api_key);
       weatherCache.set(this.request.originalUrl, {body: response, code: 200});
-      this.response.body = { cached: false, result: response };
+      this.response.body = { cached: false, result: this.modifyResponse(response) };
     }else {
-      this.response.body = cached;
+      this.response.body = { cached: true, result: this.modifyResponse(cached.result) };
     }
     this.response.status = 200;
   }

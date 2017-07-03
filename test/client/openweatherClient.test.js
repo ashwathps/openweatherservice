@@ -40,6 +40,7 @@ describe('Open weather Client', () => {
         .withArgs(expected)
         .returns(Promise.resolve({
           statusCode: 200,
+          body: {},
         }));
 
       yield client.getWeather('au', 'melbourne', '081d22e5238cd7089c663e5383b2c4a5');

@@ -13,7 +13,7 @@ Setup:
   git clone 'this repo'
   npm install
 ```
-# Usage 
+# Usage
 ```
   > node app/server.js
 ```

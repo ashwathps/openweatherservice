@@ -49,7 +49,17 @@ describe('Weather Controller', () => {
         .returns({cached: true, result: {}});
       testClient = buildGetWeatherApp();
       testClient.get('/weather/country/au/city/adelaide')
-        .expect({cached: true, result: {}})
+        .expect({cached: true, result: ""})
+        .expect(200, done);
+    });
+
+    it('should return correct response with cache set - test 2', (done) => {
+      const getCache = stubClassMethod(weatherController, um => um.fetchCachedResponses);
+      getCache
+        .returns({cached: true, result: { weather: [{}] }});
+      testClient = buildGetWeatherApp();
+      testClient.get('/weather/country/au/city/adelaide')
+        .expect({cached: true, result: 'No data'})
         .expect(200, done);
     });
 
@@ -65,7 +75,7 @@ describe('Weather Controller', () => {
         .expect(200, {cached: false}, done);
     });
 
-    it('should return correct response with cache set', (done) => {
+    it('should return correct response with cache set - test 3', (done) => {
       testClient = buildGetWeatherApp();
       const result = testClient.get('/weather/country/au/city/melbourne')
         .expect(function(res) {
