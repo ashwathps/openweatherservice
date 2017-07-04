@@ -28,3 +28,8 @@ The tests are written using a BDD. NodeJS has an extensive library collection to
 ```
   > ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.test.js -- -R spec
 ```
+# Running
+The server runs default on 8009 port localhost.
+```
+http://localhost:8009/weather/country/au/city/melbourne?api_key=<your apikey>
+```
