@@ -21,7 +21,7 @@ Setup:
 ### Unit tests
 The tests are written using a BDD. NodeJS has an extensive library collection to support BDD. This repo uses mocha, assert, should and Sinon.
 ```
-  > npm unit-test
+  > grunt unit-test
 ```
 ### Coverage
 
