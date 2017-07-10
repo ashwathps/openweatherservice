@@ -7,6 +7,7 @@ const restBuilder = require('../.stubs/restBuilder');
 const weatherService = require('../../app/clients/openweatherClient');
 const weatherController = require('../../app/controller/weatherController');
 const ld = require('lodash');
+const ratelimitMw = require('../../app/middleware/ratelimiter');
 
 describe('Weather Controller', () => {
   let sandbox;
@@ -82,6 +83,24 @@ describe('Weather Controller', () => {
           delete res.body.result;
         })
         .expect(200, {cached: true}, done);
+    });
+    
+    it('should return correct response with ratelimiting', (done) => {
+      testClient = buildGetWeatherApp({}, ratelimitMw({max: 1, duration: '5s'}));
+      let resultArray = [];
+      let counter = 0;
+
+      testClient.get('/weather/country/au/city/melbourne?api_key=5bb24ba5579ed211e2a16d88185d1721')
+        .expect(function(res) {
+          resultArray.push(res.statusCode);
+        })
+        .end(function(res){
+          testClient.get('/weather/country/au/city/melbourne?api_key=5bb24ba5579ed211e2a16d88185d1721')
+            .expect(function(res) {
+              resultArray.push(res.statusCode);
+            })
+            .expect(429, done);
+        });
     });
   });
 });
