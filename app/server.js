@@ -32,4 +32,4 @@ app.use(router);
 http
   .createServer(app.callback())
   .listen(8009);
-console.log("Weather service listening on 8099"); 
+console.log("Weather service listening on 8009"); 
